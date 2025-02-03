@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="shortcut icon" href="https://github.com/fluidicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css">
+</head>
+
+<!-- ---------------BODY--------------------------------------------------- -->
+
+<body>
+    <h1 style="color:blue">Css instructions</h1>
+    <ol type="I">
+        <h2><li>Css basics</li></h2>
+            <ul>
+                <li><b>Inline:</b> To add properties to inline text, use structure:<br>
+                    <code class="language-html">&lt;h1 style=&quot;color:blue&quot;&gt;Css instructions&lt;/h1&gt;</li></code>
+                <li><b>Internal: </b>To add properties to everything for a specific type of entity, for example, adding &lt;style&gt; to the &lt;head&gt; html tag:<br>
+<pre><code class="language-html">&lt;style&gt;
+    h2,p{
+        color:red;
+        font-style:italic;
+    }
+&lt;/style&gt;
+</code></pre>will add color, font style to the &lt;h2&gt; and &lt;p&gt; tag
+                </li>
+                <li><b>External: </b>To add properties to all html files in a project, create a new style.css file and add properties to it, eg:<br>
+<pre><code class="language-html">h2,p{
+    color:red;
+    font-style:italic;
+}
+</code></pre> Then, in the main html file, add to the &lt;head&gt; html tag the link:
+<code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code><br>
+or simply enter style:css to fill the code
+                </li>
+                <li><u>When all 3 of this are present, the priority is:</u> <b>Inline >> Internal >> External</b></li>
+            </ul>
+        <h2><li>Some common properties</li></h2>
+        <ol>
+            <b><li>color:</b> Change the color of object, example:</li>
+            <code class="language-html">h1 {color:red;}</code>
+            <b><li>font-style:</b> Change the style of text, example:</li>
+            <code class="language-html">h1 {font-style:Italic;}</code>
+            <b><li>font-family:</b> Change the font of text, example:</li>
+            <code class="language-html">h1 {font-family:'Times New Roman';}</code>
+            <b><li>text-transform:</b> Capitalize or un-capitalize text, example:</li>
+            <code class="language-html">h1 {text-transform:capitalize;}</code>
+            <b><li>text-align:</b>Align object, example:</li>
+            <code class="language-html">h1 {text-align:left;}</code>
+            <b><li>font-size:</b>Change font size, example:</li>
+            <code class="language-html">h1 {font-size:28px;}</code>
+            <b><li>opacity:</b> Change the transparency of object, example:</li>
+            <code class="language-html">h1 {opacity: 60%;}</code>
+            <b><li>visibility:</b>Hide or show object (hide also block interaction), example: </li>
+            <code class="language-html">h1 {visibility: visible;}</code>
+            <b><li>display:</b> Display object or not, example:</li>
+            <code class="language-html">h1 {display:none;}</code>
+            <ul><li><i>Distinguishing Opacity 0, display none and visibility hidden</i></li></ul>
+            <img src="/img/distinguishOpacityDisplayVisibility.png" alt="table of distinguishing display none, opacity 0, visibility hide">
+            <b><li>background-color:</b>Add background color for text, example:</li>
+            <code class="language-html">h1 {background-color: blue;}</code>
+            <b><li>background-image:</b> Add background image, example:</li>
+            <code class="language-html">body {background-image:url(/img/Earth.jpg);}</code>
+            <b><li>transition:</b> Time taken to transit upon display update for an object (for animation, and does support opacity and visibility), example:</li>
+<pre>
+<code class="language-html">img {
+  transition: 1.5s;
+}
+
+input:checked ~ img {
+  opacity: 0;
+  visibility: hidden;
+}</code>
+</pre>
+            <b><li>favicon:</b> Add icon for website, place the link to &lt;head&gt; of html:</li>
+            <code class="language-html">&lt;link rel="shortcut icon" href="https://github.com/fluidicon.png" type="image/x-icon"&gt;</code>
+            <br/>to add ico file for web icon
+            <b><li>user-select:</b>Allow or disallow user to select text</li>
+            <code class="language-html">user-select: none</code>
+        </ol>
+        <h2><li>Combinators</li></h2>   
+        <ol>
+            <b><li>ID selector:</b>This will mark a specific part with an ID (IDs must be unique) and call them out in css file, example:</li>
+            <u>In html file</u>:
+            <br/><code class="language-html">&lt;h2 id="Anyname"&gt;Test text&lt;/h1&gt;</code>
+            <br/><u>In css file</u>:<br>
+            <code class="language-html">#Anyname {color="red";}</code>
+            <br/>We can also type in html file, for example "h2#Id1" and it will auto creat h2 with id
+            <b><li>Class selector</b>This can select multiple parts with same class and call them out in CSS file, example:</li>
+            <u>In html file</u>:<br>
+<pre>
+<code class="language-html">&lt;h2 class="Name"&gt;Test text1&lt;/h2&gt;
+&lt;h2 class="Name"&gt;Test text2&lt;/h2&gt;</code>
+</pre><u>In css file</u>:<br>
+            <code class="language-html">.Name {color="red";}</code>
+            <b><li>Combinator selectors: </b>
+            <ul>
+            <li>Use * to add properties to everything</li>
+            <code class="language-html">* {color: red;}</code>
+            <br><li>We can also name multiple classes to an object (separated with space) to call it out more specifically in css file, example:</li>
+            <br/><u>In html file</u>:<br>
+<pre><code class="language-html">&lt;h2 class="Class1"&gt;Object1&lt;/h2&gt;
+&lt;h2 class="Class1 Class2"&gt;Object2&lt;/h2&gt;
+</code></pre>
+            <u>In css file</u>:
+            <br/><code class="language-html">.Class1.Class2 {color="red";}</code>
+            <br>This will change only Object2 leaving Object1 intact since it only have Class1<br>
+            A faster writing in html file, for example "h2.class1.class2" will auto fill the rest
+            <li>In css file, use space to select all sub objects of a specific type inside the main object</li>
+            <li>Use ">" to select first level sub objects<br></li>
+            <li>Use "+" to select one specific object if placed right next to it</li>
+            <li>Use "~" to select all specific object if placed after it (regardless of discontinuity)</li>
+                <u>In html file</u>:<br>
+<pre><code class="language-html">&lt;p&gt;
+    &lt;h2&gt;Header1.1&lt;/h2&gt;
+    &lt;h2 class=&quot;C1&quot;&gt;header1.2&lt;/h2&gt;
+    &lt;h2 class=&quot;C1 C2&quot;&gt;header1.3&lt;/h2&gt;
+    &lt;h2&gt;Extra header1&lt;/h2&gt;
+    &lt;h3&gt;Header2.1&lt;/h3&gt;
+    &lt;h3&gt;header2.2&lt;/h3&gt;
+    Main paragraph&lt;br&gt;
+    line1&lt;br&gt;
+    line2&lt;br&gt;
+    &lt;div&gt;
+        &lt;p&gt;Paragraph1.1&lt;/p&gt;
+        &lt;p&gt;Paragraph1.2
+            &lt;blockquote&gt;Paragraph2.1
+                &lt;p&gt;paragraph3.1(p inside blockquote)&lt;/p&gt;
+            &lt;/blockquote&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/p&gt;
+</code></pre>
+            <br/><u>In css file</u>:<br>
+            <code class="language-html">div p{color:blueviolet;}</code> will paint all &lt;p&gt; object inside &lt;div&gt;, including paragraphs(1.1, 1.2, 3.1), leaving paragraph2.1 intact (since its inside &lt;blockquotee&gt;)
+            <br/>While:<br>
+            <code class="language-html">div>p{color:blueviolet;}</code> will only paint paragraph1.1 and 1.2
+            And:<br>
+            <code class="language-html">.C2+h2{color:blueviolet;}</code> will paint purple "Extra header1"
+            <br/>while<br>
+            <code class="language-html">h2~h3{color:blueviolet;}</code> will paint all header2 (&lt;h3&gt;)
+            </li>
+            </ul>
+            <b><li>Selector element.class: </b>Add .class after an object in css file to add properties to objects with same class but different tag type, example:</b></li>
+            <br/><u>In html file</u>:<br>
+<pre><code class="language-html">&lt;h2 class="Class1"&gt;Object1&lt;/h2&gt;
+&lt;p class="Class1"&gt;Object2&lt;/p&gt;
+</code></pre>
+            <u>In css file</u>:<br>
+            <code class="language-html">p.Class1 {color="red";}</code>
+            <br>This will change only Object2 to red, leaving Object1 intact despite same class
+            <b><li>abc:</b></li>
+            <code class="language-html">h1 {xyz}</code>
+            <b><li>abc:</b></li>
+            <code class="language-html">h1 {xyz}</code>
+            <b><li>abc:</b></li>
+            <code class="language-html">h1 {xyz}</code>
+            <b><li>abc:</b></li>
+            <code class="language-html">h1 {xyz}</code>
+        </ol>
+    </ol>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script> 
+</body>
+</html>
